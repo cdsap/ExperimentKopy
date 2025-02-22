@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.10")
-    implementation(("com.javiersc.kotlin.kopy:com.javiersc.kotlin.kopy.gradle.plugin:0.14.0+2.1.10")
+    implementation("com.javiersc.kotlin.kopy:com.javiersc.kotlin.kopy.gradle.plugin:0.14.0+2.1.10")
     implementation("com.android.tools.build:gradle:8.8.0")
 }
 
