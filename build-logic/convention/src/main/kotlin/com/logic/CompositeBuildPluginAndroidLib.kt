@@ -14,6 +14,7 @@
                             apply("com.android.library")
                             apply("org.jetbrains.kotlin.android")
                             apply("kotlin-kapt")
+                            apply("com.javiersc.kotlin.kopy")
                         }
 
                      val name = target.name.replace(":","_")
