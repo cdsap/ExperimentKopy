@@ -7,6 +7,9 @@ pluginManagement {
     }
 }
 rootProject.name="project"
+plugins {
+    id("com.gradle.develocity") version "3.19.1"
+}
 develocity {
     server = "https://ge.solutions-team.gradle.com/"
     allowUntrustedServer = true
