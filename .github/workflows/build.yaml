@@ -35,12 +35,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}     
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
       - name: Check build-logic
-        run: ./gradlew :app:assembleDebug 
+        run: ./gradlew :layer_5:module_5_251:assembleDebug
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_TOKEN }}
-            
 
-      
+
