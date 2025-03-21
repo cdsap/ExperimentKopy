@@ -1,0 +1,31 @@
+version: 2.1
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  build:
+    docker:
+      - image: cimg/android:2025.02
+    steps:
+      - checkout
+      - run:
+          name: Build with Gradle
+          command: |
+             cat /proc/meminfo  
+             ./gradlew :app:assembleDebug
+             cat /proc/meminfo
+    
+    environment:
+      PR_CI_BUILD: true
+
+workflows:
+  version: 2
+  pr_build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - circlecli
