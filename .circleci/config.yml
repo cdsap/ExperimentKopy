@@ -4,20 +4,18 @@ jobs:
   build:
     docker:
       - image: cimg/android:2025.02
+    environment:
+      PR_CI_BUILD: true
     steps:
       - checkout
       - run:
           name: Build with Gradle
           command: |
-             cat /proc/meminfo  
-             ./gradlew :app:assembleDebug
-             cat /proc/meminfo
-    
-    environment:
-      PR_CI_BUILD: true
+            cat /proc/meminfo  
+            ./gradlew :app:assembleDebug
+            cat /proc/meminfo
 
 workflows:
-  version: 2
   pr_build:
     jobs:
       - build:
