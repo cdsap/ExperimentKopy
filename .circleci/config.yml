@@ -16,7 +16,7 @@ jobs:
           name: Build with Gradle
           command: |
             cat /proc/meminfo  
-            ./gradlew :app:assembleDebug
+            ./gradlew assembleDebug
             cat /proc/meminfo
 
 workflows:
