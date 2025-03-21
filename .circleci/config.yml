@@ -1,5 +1,9 @@
 version: 2.1
 
+on:
+  pull_request:
+    types: [opened, reopened]
+
 jobs:
   build:
     docker:
@@ -18,8 +22,4 @@ jobs:
 workflows:
   pr_build:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - circlecli
+      - build
