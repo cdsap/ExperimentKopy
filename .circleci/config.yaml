@@ -1,8 +1,5 @@
 version: 2.1
 
-on:
-  branch:
-
 jobs:
   build:
     docker:
@@ -12,10 +9,9 @@ jobs:
       - run:
           name: Build with Gradle
           command: |
-             cat /proc/meminfo  
-             ./gradlew :app:assembleDebug
-             cat /proc/meminfo
-    
+            cat /proc/meminfo  
+            ./gradlew :app:assembleDebug
+            cat /proc/meminfo
     environment:
       PR_CI_BUILD: true
 
