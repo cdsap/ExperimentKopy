@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Start Java memory monitor
           command: |
-            chmod +x ./monitor_java_memory.sh
+            chmod +x ./mmemory_monitor.sh
             ./memory_monitor.sh &      
       - run:
           name: Build with Gradle
