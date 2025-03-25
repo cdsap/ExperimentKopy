@@ -16,9 +16,8 @@ jobs:
           name: Start Java memory monitor
           command: |
             chmod +x ./memory_monitor.sh
-            timeout 600 ./memory_monitor.sh &
+            ./memory_monitor.sh &
             ./gradlew assembleDebug
-            kill %1 || true  
       - store_artifacts:
           path: java_mem_monitor.log
           destination: java_mem_monitor.log       
