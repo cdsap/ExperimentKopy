@@ -13,16 +13,25 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Start Java memory monitor
+          command: |
+            chmod +x ./monitor_java_memory.sh
+            ./monitor_java_memory.sh &      
+      - run:
           name: Build with Gradle
           command: |
             cat /proc/meminfo  
             ./gradlew assembleDebug
             cat /proc/meminfo
-      - run: 
-          command: journalctl -k
-          when: always            
+      - store_artifacts:
+          path: /tmp/java_mem_monitor.log
+          destination: java_mem_monitor.log       
 
 workflows:
   pr_build:
     jobs:
-      - build
+      - build:
+          post-steps:
+            - store_artifacts:
+                path: /tmp/java_mem_monitor.log
+                destination: java_mem_monitor.log      
