@@ -18,6 +18,9 @@ jobs:
             cat /proc/meminfo  
             ./gradlew assembleDebug
             cat /proc/meminfo
+      - run: 
+          command: journalctl -k
+          when: always            
 
 workflows:
   pr_build:
