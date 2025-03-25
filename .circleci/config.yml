@@ -16,13 +16,9 @@ jobs:
           name: Start Java memory monitor
           command: |
             chmod +x ./memory_monitor.sh
-            ./memory_monitor.sh &      
-      - run:
-          name: Build with Gradle
-          command: |
-            cat /proc/meminfo  
+            timeout 600 ./memory_monitor.sh &
             ./gradlew assembleDebug
-            cat /proc/meminfo
+            kill %1 || true  
       - store_artifacts:
           path: java_mem_monitor.log
           destination: java_mem_monitor.log       
