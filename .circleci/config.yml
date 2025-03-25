@@ -24,7 +24,7 @@ jobs:
             ./gradlew assembleDebug
             cat /proc/meminfo
       - store_artifacts:
-          path: /tmp/java_mem_monitor.log
+          path: java_mem_monitor.log
           destination: java_mem_monitor.log       
 
 workflows:
@@ -33,5 +33,5 @@ workflows:
       - build:
           post-steps:
             - store_artifacts:
-                path: /tmp/java_mem_monitor.log
+                path: java_mem_monitor.log
                 destination: java_mem_monitor.log      
