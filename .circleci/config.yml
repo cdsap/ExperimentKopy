@@ -1,0 +1,32 @@
+version: 2.1
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  build:
+    docker:
+      - image: cimg/android:2025.02
+    environment:
+      PR_CI_BUILD: true
+    steps:
+      - checkout
+      - run:
+          name: Start Java memory monitor
+          command: |
+            chmod +x ./memory_monitor.sh
+            ./memory_monitor.sh &
+            ./gradlew assembleDebug
+      - store_artifacts:
+          path: java_mem_monitor.log
+          destination: java_mem_monitor.log       
+
+workflows:
+  pr_build:
+    jobs:
+      - build:
+          post-steps:
+            - store_artifacts:
+                path: java_mem_monitor.log
+                destination: java_mem_monitor.log      
