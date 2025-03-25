@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PATTERNS=("GradleDaemon" "KotlinCompileDaemon" "GradleWorkerMain")
-LOG_FILE="/tmp/java_mem_monitor.log"
+LOG_FILE="java_mem_monitor.log"
 INTERVAL=5
 
 echo "Starting memory monitor at $(date)" > "$LOG_FILE"
